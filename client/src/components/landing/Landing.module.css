@@ -1,0 +1,46 @@
+.container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+  }
+  
+  .loadingImg {
+    width: 30vw; /* Por ejemplo, la imagen ocupará el 30% del ancho del viewport */
+    max-width: 300px;
+  }
+  
+  .launchButton {
+    /* Estilo de botón */
+    border: 3px solid #f00; /* Borde rojo alrededor del botón */
+    border-radius: 10px; /* Bordes redondeados */
+    background-color: #ffcc00; /* Fondo amarillo */
+    color: #fff; /* Texto en color blanco */
+    padding: 15px 30px; /* Espaciado interno */
+    font-size: 20px; /* Tamaño de fuente */
+    font-weight: bold; /* Texto en negrita */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3); /* Sombra del texto */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transición suave en el cambio de color de fondo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra alrededor del botón */
+  }
+  
+  .launchButton:hover {
+    background-color: #f00; /* Cambia el fondo a rojo cuando pasas el cursor */
+  }
+  
+  .launchButton:active {
+    background-color: #cc0000; /* Cambia el fondo a un tono más oscuro de rojo cuando presionas el botón */
+  }
+  
+  /* Agregar media query para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .launchButton {
+      font-size: 16px; /* Reducir el tamaño de fuente en pantallas más pequeñas */
+      padding: 10px 20px; /* Reducir el espaciado interno en pantallas más pequeñas */
+    }
+  }
+  

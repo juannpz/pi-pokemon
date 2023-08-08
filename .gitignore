@@ -1,0 +1,26 @@
+# Logs
+logs
+*.log
+
+# general
+node_modules
+dist
+dist-ssr
+*.local
+*.env
+.env
+IniciandoUnPi.md
+back-prompt.txt
+pokemon.session.sql
+
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

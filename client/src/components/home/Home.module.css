@@ -1,0 +1,18 @@
+.cardContainer {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+}
+
+/* Agregar media query para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .cardContainer {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Ajustar el ancho mínimo a 150px */
+    gap: 1rem; /* Reducir el espacio entre las tarjetas en pantallas más pequeñas */
+    padding: 1rem; /* Agregar un espacio interno al contenedor en pantallas más pequeñas */
+  }
+}

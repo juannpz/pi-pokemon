@@ -1,0 +1,147 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 250px; 
+  margin: 0.3rem;/* Aumentar el ancho máximo para hacer las tarjetas un poco más grandes */
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: none;
+}
+
+.card img {
+  width: 100%;
+  height: 200px; /* Ajustar la altura de la imagen para mantener la proporción */
+  object-fit: cover;
+  border-radius: 0.5rem;
+  background-color: #F2F2F2;
+}
+
+.card h3 {
+  margin-top: 0.5rem;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+  color: #313131;
+}
+  
+.typeContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.typeContainer strong {
+  display: inline-block;
+  margin: 2px;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.2rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+}
+
+.fire {
+  background-color: #FD7D24;
+  color: #FFFFFF;
+}
+
+.grass {
+  background-color: #9BCC50;
+  color: #212121;
+}
+
+.dragon {
+  background-image: #455BE0;
+  color: #FFFFFF;
+}
+
+.normal {
+  background-color: #A4ACAF;
+  color: #FFFFFF;
+}
+
+.fighting {
+  background-color: #e21b1b;
+  color: #FFFFFF;
+}
+
+.poison {
+  background-color: #B97FC9;
+  color: #FFFFFF;
+}
+
+.flying {
+  background-color: #88b7e0;
+  color: #212121;
+}
+
+.rock {
+  background-color: #AFA880;
+  color: #FFFFFF;
+}
+
+.ground {
+  background-color: #925127;
+  color: #FFFFFF;
+}
+
+.bug {
+  background-color: #729F3F;
+  color: #FFFFFF;
+}
+
+.ghost {
+  background-color: #7B62A3;
+  color: #FFFFFF;
+}
+
+.steel {
+  background-color: #9EB7B8;
+  color: #212121;
+}
+
+.water {
+  background-color: #007BEE;
+  color: #FFFFFF;
+}
+
+.electric {
+  background-color: #EED535;
+  color: #212121;
+}
+
+.psychic {
+  background-color: #F366B9;
+  color: #FFFFFF;
+}
+
+.ice {
+  background-color: #51C4E7;
+  color: #212121;
+}
+
+.dark {
+  background-color: #6d6d6d;
+  color: #FFFFFF;
+}
+
+.fairy {
+  background-color: #FDB9E9;
+  color: #212121;
+}
+
+.unknown {
+  background-color: whitesmoke;
+  color: #212121;
+}
+
+.shadow {
+  background-color: #4f4f4f;
+  color: #FFFFFF;
+}
