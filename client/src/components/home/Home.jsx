@@ -1,16 +1,22 @@
 import PokemonCard from '../pokemonCard/PokemonCard';
 import styles from './Home.module.css'
-import AllPokemons from '../../hooks/allData';
+import SearchBar from '../searchBar/SearchBar';
+import { useSelector } from 'react-redux';
+import AllData from '../../hooks/allData';
 
 const Home = () => {
-  const pokemons = AllPokemons().pokemons
+  const {pokemons} = AllData()
+  const pokemonByName = useSelector((state) => state.pokemonByName)
 
   return (
     <div>
+      <SearchBar />
       <div className={styles.cardContainer}>
-        {pokemons.map(pokemon => (
-          <PokemonCard key={pokemon.api_id} pokemon={pokemon} />
-        ))}
+        {pokemonByName ? pokemonByName.map(pokemon => (
+      <PokemonCard key={pokemonByName.api_id} pokemon={pokemon} />
+    )) : pokemons.map(pokemon => (
+      <PokemonCard key={pokemon.api_id} pokemon={pokemon} />
+    ))}
       </div>
     </div>
   )

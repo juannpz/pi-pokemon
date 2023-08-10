@@ -1,8 +1,10 @@
 import axios from "axios"
 
 const GET_ALL_POKEMONS = "GET_ALL_POKEMONS"
-const GET_POKEMON_BY_ID = "GET_POKEMONS_BY_ID"
+const GET_POKEMON_BY_ID = "GET_POKEMON_BY_ID"
+const GET_POKEMON_BY_NAME = "GET_POKEMON_BY_NAME"
 const GET_TYPES = "GET_TYPES"
+const CLEAN_POKEMON_BY_NAME = "CLEAN_POKEMON_BY_NAME"
 
 const getAllPokemons = () => {
     return async (dispatch) => {
@@ -28,6 +30,18 @@ const getPokemonById = (id) => {
   }
 }
 
+const getPokemonByName = (name) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(`http://localhost:3001/pokemons/name?name=${name}`);
+      const pokemon = response.data;
+      dispatch({ type: GET_POKEMON_BY_NAME, payload: pokemon });
+    } catch (error) {
+      dispatch({ type: GET_POKEMON_BY_NAME, payload: error.message });
+    }
+  }
+}
+
 const getTypes = () => {
   return async (dispatch) => {
     try {
@@ -40,11 +54,21 @@ const getTypes = () => {
   }
 }
 
+const cleanPokemonByName = () => {
+  return {
+    type: CLEAN_POKEMON_BY_NAME
+  }
+}
+
 export {
     getAllPokemons,
     GET_ALL_POKEMONS,
     getPokemonById,
     GET_POKEMON_BY_ID,
+    getPokemonByName,
+    GET_POKEMON_BY_NAME,
     getTypes,
     GET_TYPES,
+    cleanPokemonByName,
+    CLEAN_POKEMON_BY_NAME,
 }

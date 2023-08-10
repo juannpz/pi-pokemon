@@ -4,8 +4,14 @@ const axios = require('axios')
 
 module.exports = async function getAllPokemons(req, res, next) {
   try {
+    const pokemonCount = await Pokemon.count()
+
+    if (pokemonCount > 1000) {
+      const pokemonsFromDB = await Pokemon.findAll()
+      res.json(pokemonsFromDB)
+    } else {
     // Obtener los nombres de los pokémons de la API de Pokémon
-    const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=20');
+    const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=2000');
     const pokemonsFromAPI = response.data.results//.sort(() => Math.random() - 0.5); <----- ordenar el array de manera aleatoria.
 
     // Crear un arreglo para almacenar los detalles de cada Pokémon con sus types
@@ -45,7 +51,7 @@ module.exports = async function getAllPokemons(req, res, next) {
       allPokemons.push(pokemonData);
     }
 
-    res.json(allPokemons);
+    res.json(allPokemons)}
   } catch (error) {
     next(error);
   }

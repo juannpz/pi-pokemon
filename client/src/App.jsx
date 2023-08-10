@@ -2,6 +2,8 @@ import { Routes, Route } from 'react-router-dom';
 import LandingPage from './components/landing/Landing';
 import Home from './components/home/Home';
 import styles from './App.module.css';
+import PokemonDetail from './components/pokemonDetail/PokemonDetail';
+
 
 const App = () => {
   return (
@@ -11,6 +13,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/home" element={<Home />} />
+          <Route path= '/detail/:id' element= {<PokemonDetail />}/>
         </Routes>
       </div>
       <div className={styles.sidebarRight}></div>

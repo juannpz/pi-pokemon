@@ -11,19 +11,15 @@ const Landing = () => {
   useEffect(() => {
     if (pokemons.length > 1 && types.length > 1)setLoading(false)
   }, [pokemons, types])
-  
 
-  const handleGoToHomePage = () => {
-    navigate('/home'); // Redirige a la página de inicio (Home)
-  };
 
   return (
     <div className={`${styles.container} ${!loading && styles.showBackground}`}>
       {loading && <img className={styles.loadingImg} src='./src/assets/eevee_loading.gif'/>}
       {loading && <h1>LOADING</h1>}
-      {!loading && <button className={styles.launchButton} onClick={handleGoToHomePage}>Ingresar</button>}
+      {!loading && <button className={styles.launchButton} onClick={navigate('/home') }>Ingresar</button>}
     </div>
   );
 };
 
-export default Landing;
+export default Landing
