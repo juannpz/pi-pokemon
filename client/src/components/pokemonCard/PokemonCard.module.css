@@ -5,11 +5,12 @@
   border-radius: 3%;
   width: 100%;
   max-width: 250px; 
-  border: 0.2rem solid rgba(187, 0, 0, 0.678);
   padding: 0.7rem;
   margin: 1rem;
   border: 0.2rem solid rgb(44, 44, 44);
-  background-color: gainsboro;
+  background-color: #ffcc00;
+  justify-content: center;
+  text-align: center;
 }
 
 .link {
@@ -21,25 +22,30 @@
 }
 
 .card img {
-  width: 100%;
-  min-height: 150px; /* Ajustar la altura de la imagen para mantener la proporción */
-  object-fit: cover;
+  width: 12rem;
+  height: 12rem; /* Ajustar la altura de la imagen para mantener la proporción */
+  object-fit: contain;
   border-radius: 0.5rem;
   background-color: whitesmoke;
-  border: 0.2rem solid rgb(44, 44, 44)
+  border: 0.2rem solid rgb(44, 44, 44);
+  padding: 0.1rem;
 }
 
 .card h3 {
   margin-top: 0.5rem;
-  margin-bottom: 0.1rem;
+  margin-bottom: 0.3rem;
   font-weight: bold;
-  color: rgb(44, 44, 44);
+  color: rgb(39, 39, 39);
 }
   
 .typeContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: whitesmoke;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 0.2rem solid rgb(44, 44, 44);
 }
 
 .typeContainer strong {

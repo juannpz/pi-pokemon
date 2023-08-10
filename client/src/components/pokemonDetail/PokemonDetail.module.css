@@ -3,7 +3,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 1rem;
 }
 
 .dataContainer {
@@ -15,7 +14,7 @@
     flex-wrap: wrap;
     justify-content: center;
     border: 0.2rem solid rgb(44, 44, 44);
-    background-color: gainsboro;
+    background-color: #ffcc00;
 }
 
 .statsContainer {
@@ -24,25 +23,27 @@
     background-color: whitesmoke;
     border-radius: 0.5rem;
     justify-content: center;
-    width: 85%;
-    padding-top: 1rem;
+    width: 12rem;
+    height: 12rem;
     align-items: flex-start;
     border: 0.2rem solid rgb(44, 44, 44);
+    margin: 1rem;
+    justify-content: center;
     
 }
 
 .stats1 {
     display: flex;
     flex-direction: column;
-    margin-right: 2.2rem;
-    padding-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-top: 1rem;
 }
 
 .stats2 {
     display: flex;
     flex-direction: column;
-    margin-left: 2.2rem;
-    padding-right: 1.5rem;
+    margin-left: 1.5rem;
+    margin-top: 1rem;
 }
 
 .value {
@@ -57,12 +58,14 @@
 }
 
 .dataContainer img {
-    width: 65%;
     background-color: whitesmoke;
-    margin-bottom: 1rem;
+    width: 15rem;
+    height: 15rem;
     border-radius: 0.5rem;
-    min-height: 12rem;
     border: 0.2rem solid rgb(44, 44, 44);
+    object-fit: contain;
+    margin: 1rem;
+    padding: 0.1rem;
   }
 
 .detailContainer h2 {

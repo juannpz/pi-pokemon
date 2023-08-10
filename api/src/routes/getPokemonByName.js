@@ -43,7 +43,7 @@ module.exports = async function getPokemonByName(req, res, next) {
           api_id: pokemonDetails.id,
           name: pokemonDetails.name,
           api_types: types,
-          img: pokemonDetails.sprites.front_default,
+          img: pokemonDetails.sprites.other["official-artwork"].front_default,
           hp: pokemonDetails.stats.find(stat => stat.stat.name === 'hp').base_stat,
           attack: pokemonDetails.stats.find(stat => stat.stat.name === 'attack').base_stat,
           defense: pokemonDetails.stats.find(stat => stat.stat.name === 'defense').base_stat,

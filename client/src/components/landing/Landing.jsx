@@ -17,7 +17,7 @@ const Landing = () => {
     <div className={`${styles.container} ${!loading && styles.showBackground}`}>
       {loading && <img className={styles.loadingImg} src='./src/assets/eevee_loading.gif'/>}
       {loading && <h1>LOADING</h1>}
-      {!loading && <button className={styles.launchButton} onClick={navigate('/home') }>Ingresar</button>}
+      {!loading && <button className={styles.launchButton} onClick={() => navigate('/home')}>Ingresar</button>}
     </div>
   );
 };
