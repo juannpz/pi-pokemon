@@ -1,10 +1,10 @@
   /* eslint-disable react/prop-types */
   import styles from './PokemonCard.module.css'
-  import { Link } from 'react-router-dom';
+  import { Link } from 'react-router-dom'
 
   const PokemonCard = ({pokemon}) => {
 
-    const { name, api_types, img, api_id} = pokemon
+    const { name, type, img, api_id} = pokemon
 
     return (
       <div className={styles.card}>
@@ -12,7 +12,7 @@
           <img src={img} alt={name} />
           <h3>{name.toUpperCase()}</h3>
           <div className={styles.typeContainer}>
-            {api_types.map((type) => (
+            {type.map((type) => (
               <strong
                 className={styles[type]}
                 key={`${type}-${name}`}>
@@ -25,4 +25,4 @@
     )
   }
 
-  export default PokemonCard;
+  export default PokemonCard

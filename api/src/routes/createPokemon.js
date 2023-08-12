@@ -18,6 +18,7 @@ const createPokemon = async (req, res, next) => {
 
       const createdTypes = await Type.findAll({ where: { name: existingTypeNames } });
 
+      const associatedTypes = existingTypeNames;
       const createdPokemon = await Pokemon.create({
         name,
         img,
@@ -28,10 +29,10 @@ const createPokemon = async (req, res, next) => {
         height,
         weight,
         createdAtLocal: true,
+        type: associatedTypes,
       });
       await createdPokemon.setTypes(createdTypes);
 
-      const associatedTypes = existingTypeNames;
 
       const response = {
         id: createdPokemon.id,

@@ -25,7 +25,7 @@ module.exports = async function getPokemonById(req, res, next) {
         const pokemonToCreate = {
           api_id: pokemonDetails.id,
           name: pokemonDetails.name,
-          api_types: types,
+          type: types,
           img: pokemonDetails.sprites.other["official-artwork"].front_default,
           hp: pokemonDetails.stats.find((stat) => stat.stat.name === 'hp').base_stat,
           attack: pokemonDetails.stats.find((stat) => stat.stat.name === 'attack').base_stat,

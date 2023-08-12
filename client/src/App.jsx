@@ -1,8 +1,8 @@
-import { Routes, Route } from 'react-router-dom';
-import LandingPage from './components/landing/Landing';
-import Home from './components/home/Home';
-import styles from './App.module.css';
-import PokemonDetail from './components/pokemonDetail/PokemonDetail';
+import { Routes, Route } from 'react-router-dom'
+import LandingPage from './components/landing/Landing'
+import Home from './components/home/Home'
+import styles from './App.module.css'
+import PokemonDetail from './components/pokemonDetail/PokemonDetail'
 
 
 const App = () => {
@@ -21,4 +21,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default App

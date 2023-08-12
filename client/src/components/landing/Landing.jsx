@@ -1,11 +1,11 @@
-import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 import styles from './Landing.module.css'
 import AllData from '../../hooks/allData'
 
 const Landing = () => {
     const navigate = useNavigate() 
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true)
     const {pokemons} = AllData()
 
   useEffect(() => {

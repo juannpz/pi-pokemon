@@ -3,7 +3,7 @@ import styles from './PokemonDetail.module.css'
 
 const PokemonDetail = () => {
 
-    const { api_types, name, attack, defense, hp, speed, img, weight, height } = PokemonById()
+    const { type, name, attack, defense, hp, speed, img, weight, height } = PokemonById()
 
     return (
         <div className={styles.detailContainer}>
@@ -31,7 +31,7 @@ const PokemonDetail = () => {
                         </div>
                     </div>
                     <div className={styles.typeContainer}>
-                        {api_types && api_types.map((type) => (
+                        {type && type.map((type) => (
                             <strong
                                 className={styles[type]}
                                 key={`${type}-${name}`}>

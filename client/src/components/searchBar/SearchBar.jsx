@@ -1,24 +1,24 @@
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { getPokemonByName } from '../../redux/actions';
-import { cleanPokemonByName } from '../../redux/actions';
-import styles from './SearchBar.module.css'; // Importa los estilos CSS Modules
+import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { getPokemonByName } from '../../redux/actions'
+import { cleanPokemonByName } from '../../redux/actions'
+import styles from './SearchBar.module.css'
 
 const SearchBar = () => {
-  const [searchValue, setSearchValue] = useState('');
-  const dispatch = useDispatch();
+  const [searchValue, setSearchValue] = useState('')
+  const dispatch = useDispatch()
 
   const handleChange = (event) => {
-    setSearchValue(event.target.value);
+    setSearchValue(event.target.value)
   };
 
   const handleSearchClick = () => {
-    dispatch(getPokemonByName(searchValue));
+    dispatch(getPokemonByName(searchValue))
   };
 
   const handleShowAllClick = () => {
     setSearchValue('');
-    dispatch(cleanPokemonByName());
+    dispatch(cleanPokemonByName())
   };
 
   return (
@@ -42,4 +42,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default SearchBar

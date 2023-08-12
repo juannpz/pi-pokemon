@@ -1,18 +1,18 @@
-import PokemonCard from '../pokemonCard/PokemonCard';
-import styles from './Home.module.css';
-import SearchBar from '../searchBar/SearchBar';
-import { useDispatch, useSelector } from 'react-redux';
-import { getAllPokemons } from '../../redux/actions';
-import { useEffect } from 'react';
-import Pagination from '../pagination/Pagination';
+import PokemonCard from '../pokemonCard/PokemonCard'
+import styles from './Home.module.css'
+import SearchBar from '../searchBar/SearchBar'
+import { useDispatch, useSelector } from 'react-redux'
+import { getAllPokemons } from '../../redux/actions'
+import { useEffect } from 'react'
+import Pagination from '../pagination/Pagination'
 
 const Home = () => {
-  const pokemonByName = useSelector((state) => state.pokemonByName);
-  const pokemons = useSelector((state) => state.pokemons);
-  const dispatch = useDispatch();
+  const pokemonByName = useSelector((state) => state.pokemonByName)
+  const pokemons = useSelector((state) => state.pokemons)
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getAllPokemons(1, 12));
+    dispatch(getAllPokemons(1, 12))
   }, [dispatch]);
 
   return (
@@ -37,4 +37,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Home
