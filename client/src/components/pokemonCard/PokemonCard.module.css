@@ -7,11 +7,18 @@
   max-width: 250px; 
   padding: 0.7rem;
   margin: 1rem;
-  border: 0.2rem solid rgb(44, 44, 44);
+  border: 0.20rem solid rgb(70, 70, 70);
   background-color: #ffcc00;
   justify-content: center;
   text-align: center;
+  transition: transform 0.3s ease
 }
+
+.card:hover {
+  transform: translateY(-0.3rem); /* Desplazamiento hacia arriba */ /* Color de fondo con opacidad */
+}
+
+
 
 .link {
   display: flex;
@@ -27,7 +34,7 @@
   object-fit: contain;
   border-radius: 0.5rem;
   background-color: whitesmoke;
-  border: 0.2rem solid rgb(44, 44, 44);
+  border: 0.15rem solid rgb(70, 70, 70);
   padding: 0.1rem;
 }
 
@@ -45,7 +52,7 @@
   background-color: whitesmoke;
   padding: 0.5rem;
   border-radius: 0.5rem;
-  border: 0.2rem solid rgb(44, 44, 44);
+  border: 0.15rem solid rgb(70, 70, 70);
 }
 
 .typeContainer strong {
@@ -53,7 +60,7 @@
   margin-left: 0.1rem;
   margin-right: 0.1rem;
   padding: 0.2rem 0.4rem;
-  border-radius: 0.2rem;
+  border-radius: 0.3rem;
   font-size: 0.7rem;
   text-transform: uppercase;
 }

@@ -1,16 +1,16 @@
 import { useNavigate } from 'react-router-dom';
-import AllData from '../../hooks/allData';
 import { useEffect, useState } from 'react';
 import styles from './Landing.module.css'
+import AllData from '../../hooks/allData'
 
 const Landing = () => {
-  const navigate = useNavigate() 
-  const {pokemons, types} = AllData()
-  const [loading, setLoading] = useState(true);
+    const navigate = useNavigate() 
+    const [loading, setLoading] = useState(true);
+    const {pokemons} = AllData()
 
   useEffect(() => {
-    if (pokemons.length > 1 && types.length > 1)setLoading(false)
-  }, [pokemons, types])
+    if (pokemons.length > 1) setLoading(false)
+  }, [pokemons])
 
 
   return (

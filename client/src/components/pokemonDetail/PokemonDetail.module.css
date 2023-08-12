@@ -13,8 +13,16 @@
     padding: 1rem;
     flex-wrap: wrap;
     justify-content: center;
-    border: 0.2rem solid rgb(44, 44, 44);
+    border: 0.2rem solid rgb(70, 70, 70);
     background-color: #ffcc00;
+}
+
+.stats_types {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  justify-content: center;
 }
 
 .statsContainer {
@@ -26,7 +34,7 @@
     width: 12rem;
     height: 12rem;
     align-items: flex-start;
-    border: 0.2rem solid rgb(44, 44, 44);
+    border: 0.15rem solid rgb(70, 70, 70);
     margin: 1rem;
     justify-content: center;
     
@@ -52,7 +60,7 @@
 }
 
 .label {
-    color: #CD4E4E;
+    color: #FF0000;
     text-transform: uppercase;
     font-weight: bold;
 }
@@ -62,7 +70,7 @@
     width: 15rem;
     height: 15rem;
     border-radius: 0.5rem;
-    border: 0.2rem solid rgb(44, 44, 44);
+    border: 0.15rem solid rgb(70, 70, 70);
     object-fit: contain;
     margin: 1rem;
     padding: 0.1rem;
@@ -81,14 +89,18 @@
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 0.3rem;
+    border: 0.15rem solid rgb(70, 70, 70);
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    background-color: whitesmoke;
   }
 
 .typeContainer strong {
     display: inline-block;
-    margin: 2px;
+    margin: 0.1rem;
     padding: 0.2rem 0.4rem;
     border-radius: 0.2rem;
-    font-size: 0.7rem;
+    font-size: 1rem;
     text-transform: uppercase;
   }
 

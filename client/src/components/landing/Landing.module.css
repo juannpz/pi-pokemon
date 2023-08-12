@@ -14,10 +14,10 @@
   
   .launchButton {
     /* Estilo de botón */
-    border: 3px solid #f00; /* Borde rojo alrededor del botón */
+    border: 0.2rem solid rgb(70, 70, 70); /* Borde rojo alrededor del botón */
     border-radius: 10px; /* Bordes redondeados */
     background-color: #ffcc00; /* Fondo amarillo */
-    color: #f00; /* Texto en color blanco */
+    color: rgb(55, 55, 55); /* Texto en color blanco */
     padding: 15px 30px; /* Espaciado interno */
     font-size: 20px; /* Tamaño de fuente */
     font-weight: bold; /* Texto en negrita */
@@ -30,7 +30,7 @@
   
   .launchButton:hover {
     background-color: #f00; /* Cambia el fondo a rojo cuando pasas el cursor */
-    color: white;
+    color: gainsboro;
   }
   
   .launchButton:active {

@@ -8,7 +8,7 @@
 
     return (
       <div className={styles.card}>
-        <Link className={styles.link} to={`/detail/${api_id}`}>
+        <Link className={styles.link} to={`/pokemon/${api_id}`}>
           <img src={img} alt={name} />
           <h3>{name.toUpperCase()}</h3>
           <div className={styles.typeContainer}>

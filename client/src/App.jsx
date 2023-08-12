@@ -11,9 +11,9 @@ const App = () => {
       <div className={styles.sidebarLeft}></div>
       <div className={styles.contentContainer}>
         <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/home" element={<Home />} />
-          <Route path= '/detail/:id' element= {<PokemonDetail />}/>
+          <Route path='/' element={<LandingPage />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/pokemon/:id' element= {<PokemonDetail />}/>
         </Routes>
       </div>
       <div className={styles.sidebarRight}></div>
