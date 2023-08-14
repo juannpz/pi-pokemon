@@ -1,19 +1,13 @@
-import { useState } from 'react'
+/* eslint-disable react/prop-types */
 import { useDispatch } from 'react-redux'
-import { getPokemonByName } from '../../redux/actions'
 import { cleanPokemonByName } from '../../redux/actions'
 import styles from './SearchBar.module.css'
 
-const SearchBar = () => {
-  const [searchValue, setSearchValue] = useState('')
+const SearchBar = ({searchValue, setSearchValue, handleSearchClick}) => {
   const dispatch = useDispatch()
 
   const handleChange = (event) => {
     setSearchValue(event.target.value)
-  };
-
-  const handleSearchClick = () => {
-    dispatch(getPokemonByName(searchValue))
   };
 
   const handleShowAllClick = () => {

@@ -10,13 +10,12 @@ module.exports = async function getAllPokemons(req, res, next) {
     const pokemonCount = await Pokemon.count()
 
     if (pokemonCount < 1000) {
-      // Obtener todos los detalles de los pokémons de la API de Pokémon
       const response = await axios.get('https://pokeapi.co/api/v2/pokemon', {
         params: {
           limit: 2000,
         },
       })
-
+      
       const pokemonsFromAPI = response.data.results
 
       // Guardar los detalles de los pokémons en la base de datos si aún no están presentes
@@ -42,30 +41,12 @@ module.exports = async function getAllPokemons(req, res, next) {
         })
       }
     }
-
-    if (parsedStart >= 0 && parsedEnd >= 0 && parsedEnd > parsedStart && parsedEnd <= pokemonCount) {
+    
       const dbPokemons = await Pokemon.findAll({
         offset: parsedStart,
         limit: parsedEnd - parsedStart + 1,
       })
-
-      const allPokemons = dbPokemons.map((pokemon) => ({
-        api_id: pokemon.api_id,
-        name: pokemon.name,
-        type: pokemon.type,
-        img: pokemon.img,
-        hp: pokemon.hp,
-        attack: pokemon.attack,
-        defense: pokemon.defense,
-        speed: pokemon.speed,
-        height: pokemon.height,
-        weight: pokemon.weight,
-      }))
-
-      res.json(allPokemons)
-    } else {
-      res.status(400).json({ message: 'Pagination failed' })
-    }
+      res.json(dbPokemons)
   } catch (error) {
     next(error)
   }

@@ -9,7 +9,7 @@ module.exports = async function getPokemonById(req, res, next) {
       // Buscar el pokémon en la base de datos por su ID numérico (api_id)
       let pokemon = await Pokemon.findOne({
         where: {
-          api_id: idPokemon,
+          id: idPokemon,
         },
       });
   
@@ -22,7 +22,7 @@ module.exports = async function getPokemonById(req, res, next) {
         const types = pokemonDetails.types.map((type) => type.type.name);
   
         // Crear un objeto con los atributos que vamos a guardar en la base de datos
-        const pokemonToCreate = {
+        pokemon = {
           api_id: pokemonDetails.id,
           name: pokemonDetails.name,
           type: types,
@@ -32,11 +32,10 @@ module.exports = async function getPokemonById(req, res, next) {
           defense: pokemonDetails.stats.find((stat) => stat.stat.name === 'defense').base_stat,
           speed: pokemonDetails.stats.find((stat) => stat.stat.name === 'speed').base_stat,
           height: pokemonDetails.height,
-          weight: pokemonDetails.weight, // Agregar los types al objeto pokemonToCreate
+          weight: pokemonDetails.weight,
         };
   
         // Crear el pokémon en la base de datos
-        pokemon = await Pokemon.create(pokemonToCreate);
       }
   
       res.json(pokemon);

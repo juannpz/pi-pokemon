@@ -28,7 +28,7 @@ const createPokemon = async (req, res, next) => {
         speed,
         height,
         weight,
-        createdAtLocal: true,
+        origin: "local",
         type: associatedTypes,
       });
       await createdPokemon.setTypes(createdTypes);

@@ -1,10 +1,11 @@
-import { CLEAN_POKEMON_BY_NAME, GET_ALL_POKEMONS, GET_POKEMON_BY_ID, GET_POKEMON_BY_NAME, GET_TYPES, LOAD_PAGINATED_POKEMONS } from "./actions";
+import { CLEAN_FILTERED_POKEMONS, CLEAN_POKEMON_BY_NAME, GET_ALL_POKEMONS, GET_FILTERED_POKEMONS, GET_POKEMON_BY_ID, GET_POKEMON_BY_NAME, GET_TYPES } from "./actions";
 
 const initialState = {
     pokemons: [],
     types: [],
     pokemonById: {},
     pokemonByName: [],
+    filteredPokemons: [],
   };
   
   const reducer = (state = initialState, action) => {
@@ -39,13 +40,19 @@ const initialState = {
           pokemonByName: [],
         }
 
-      case LOAD_PAGINATED_POKEMONS:
+      case GET_FILTERED_POKEMONS:
         return {
           ...state,
-          paginatedPokemons: action.payload,
-          currentPage: action.currentPage,
-          totalPages: action.totalPages,
+          filteredPokemons: action.payload,
+          pokemons: action.payload,
         }
+
+      case CLEAN_FILTERED_POKEMONS:
+        return {
+          ...state,
+          filteredPokemons: [],
+        }
+      
 
       default:
         return state;

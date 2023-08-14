@@ -41,9 +41,9 @@ module.exports = (sequelize) => {
     weight: {
       type: DataTypes.STRING,
     },
-    createdAtLocal: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: false,
+    origin: {
+      type: DataTypes.STRING,
+      defaultValue: "api",
     }
   }, {
     createdAt: false,

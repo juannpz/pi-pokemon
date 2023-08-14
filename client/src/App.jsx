@@ -14,6 +14,7 @@ const App = () => {
           <Route path='/' element={<LandingPage />} />
           <Route path='/home' element={<Home />} />
           <Route path='/pokemon/:id' element= {<PokemonDetail />}/>
+          <Route path='/create' element= {""}/>
         </Routes>
       </div>
       <div className={styles.sidebarRight}></div>

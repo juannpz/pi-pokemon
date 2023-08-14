@@ -1,5 +1,5 @@
 .appContainer {
     display: flex;
-    flex-direction: column;
-    height: 100vh; /* Asegurar que el contenedor ocupe toda la altura de la pantalla */
+    flex-direction: column; /* Asegurar que el contenedor ocupe toda la altura de la pantalla */
+    
   }

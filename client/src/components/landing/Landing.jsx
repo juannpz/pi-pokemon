@@ -9,7 +9,7 @@ const Landing = () => {
     const {pokemons} = AllData()
 
   useEffect(() => {
-    if (pokemons.length > 1) setLoading(false)
+    typeof pokemons === 'object' && pokemons.length > 1 && setLoading(false)
   }, [pokemons])
 
 

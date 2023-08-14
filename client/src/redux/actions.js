@@ -5,7 +5,9 @@ const GET_POKEMON_BY_ID = "GET_POKEMON_BY_ID"
 const GET_POKEMON_BY_NAME = "GET_POKEMON_BY_NAME"
 const GET_TYPES = "GET_TYPES"
 const CLEAN_POKEMON_BY_NAME = "CLEAN_POKEMON_BY_NAME"
-const LOAD_PAGINATED_POKEMONS = 'LOAD_PAGINATED_POKEMONS'
+const GET_FILTERED_POKEMONS = "GET_FILTERED_POKEMONS"
+const CLEAN_FILTERED_POKEMONS = "CLEAN_FILTERED_POKEMONS"
+
 
 const getAllPokemons = (start, end) => {
   return async (dispatch) => {
@@ -66,21 +68,30 @@ const cleanPokemonByName = () => {
   }
 }
 
-const loadPaginatedPokemons = (page, itemsPerPage) => {
-  return (dispatch, getState) => {
-    const { pokemons } = getState();
-    const startIndex = (page - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    const paginatedPokemons = pokemons.slice(startIndex, endIndex);
-    
-    dispatch({
-      type: LOAD_PAGINATED_POKEMONS,
-      payload: paginatedPokemons,
-      currentPage: page,
-      totalPages: Math.ceil(pokemons.length / itemsPerPage),
-    });
-  };
-};
+const getFilteredPokemons = (start, end, filteredBy, value) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get("http://localhost:3001/pokemons/filteredBy", {
+        params: {
+            start: start,
+            end: end,
+            filteredBy: filteredBy,
+            value: value
+        }
+    })
+      const filteredPokemons = response.data
+      dispatch({ type: GET_FILTERED_POKEMONS, payload: filteredPokemons });
+    } catch (error) {
+      dispatch({ type: GET_ALL_POKEMONS, payload: error.message });
+    }
+  }
+}
+
+const cleanFilteredPokemons = () => {
+  return {
+    type: CLEAN_FILTERED_POKEMONS
+  }
+}
 
 export {
     getAllPokemons,
@@ -93,6 +104,8 @@ export {
     GET_TYPES,
     cleanPokemonByName,
     CLEAN_POKEMON_BY_NAME,
-    loadPaginatedPokemons,
-    LOAD_PAGINATED_POKEMONS,
+    getFilteredPokemons,
+    GET_FILTERED_POKEMONS,
+    cleanFilteredPokemons,
+    CLEAN_FILTERED_POKEMONS,
 }
