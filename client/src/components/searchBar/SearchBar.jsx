@@ -8,12 +8,12 @@ const SearchBar = ({searchValue, setSearchValue, handleSearchClick}) => {
 
   const handleChange = (event) => {
     setSearchValue(event.target.value)
-  };
+  }
 
   const handleShowAllClick = () => {
-    setSearchValue('');
+    setSearchValue('')
     dispatch(cleanPokemonByName())
-  };
+  }
 
   return (
     <div className={styles.searchBarContainer}>
@@ -33,7 +33,7 @@ const SearchBar = ({searchValue, setSearchValue, handleSearchClick}) => {
         </button>
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default SearchBar

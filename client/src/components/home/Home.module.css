@@ -16,15 +16,26 @@
   margin-bottom: 1rem;
 }
 
-.searchBar_filters_h1 {
+.renderModifiers {
   display: flex;
   flex-direction: column;
+}
+
+.searchBar_createButton {
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.searchBar_filters_h1 h1 {
-  text-transform: uppercase;
-  margin-top: 3rem;
+.filters_sorters {
+  display: flex;
+}
+
+.filters {
+  margin-right: 5rem;
+}
+
+.sorters {
+  margin-left: 5rem;
 }

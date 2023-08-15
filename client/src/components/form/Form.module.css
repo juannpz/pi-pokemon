@@ -9,6 +9,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
 .pairContainer {
@@ -17,17 +19,12 @@
     margin: 1rem;
 }
 
-.typesContainer {
-    margin-left: 2rem;
-    margin-right: 2rem;
-}
-
 .label {
     color: whitesmoke;
 }
 
 .input {
-    color: whitesmoke;
+    color: #29317c;
 }
 
 .typesInput {

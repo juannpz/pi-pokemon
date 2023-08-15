@@ -93,7 +93,7 @@ const CreatePokemonForm = () => {
     }
   
     setErrors({ ...errors, types: '' })
-  };
+  }
 
   return (
         <form onSubmit={handleSubmit} className={styles.form}>
@@ -233,121 +233,7 @@ const CreatePokemonForm = () => {
       <button type="submit">Crear Pokémon</button>
     </form>
     
-  );
-};
+  )
+}
 
 export default CreatePokemonForm
-
-// new RegExp(/^(ftp|http|https)://[^ "]+$/)
-
-
-
-
-// return (
-//     <>
-//       <div className={stl.avgwrapper}>
-//         <h1 className={stl.h1}>Add your own videogame</h1>
-//         <form className={stl.formarea} onSubmit={handleSubmit}>
-//           <div className={stl.msgarea}>
-//             <label>Description:</label>
-//             <textarea
-//               onChange={handleOnChange}
-//               type="text"
-//               name="description"
-//               value={input.description}
-//             />
-//           </div>
-//           <div className={stl.detailsarea}>
-//             <label>Game Name:</label>
-//             <input
-//               onChange={handleOnChange}
-//               onBlur={handleOnChange}
-//               type="text"
-//               name="name"
-//               value={input.name}
-//               autoComplete="off"
-//             />
-//             {errors.name && <p className={stl.error}> {errors.name} </p>}
-
-//             <label>Image</label>
-//             <input
-//             onChange={handleOnChange}
-//             type="text"
-//             name='image'
-//             value={input.image}
-//             autoComplete="off" 
-//             placeholder="URL"/>
-
-//             <label>Released date:</label>
-//             <input
-//               onChange={handleOnChange}
-//               type="date"
-//               name="reldate"
-//               value={input.reldate}
-//               placeholder="YYYY-MM-DD"
-//             />
-
-//             <label>Rating:</label>
-//             <input
-//               onChange={handleOnChange}
-//               onBlur={handleOnChange}
-//               type="text"
-//               name="rating"
-//               value={input.rating}
-//               autoComplete="off"
-//               placeholder="ex 4.3"
-//             />
-//             {errors.rating && <p className={stl.error}> {errors.rating} </p>}
-
-//             <label>Select Platforms:</label>
-//             <div className={stl.checkboxContainer}>
-//               {allplatforms.sort().map((p) => {
-//                 return (
-//                   <div key={p}>
-//                     <input
-//                       type="checkbox"
-//                       value={p}
-//                       onChange={handlePlatforms}
-//                     />
-//                     <label>{p}</label>
-//                   </div>
-//                 );
-//               })}
-//             </div>
-//             <ul className="ul">
-//               <li>{input.platform.map((p) => p + ' ,')}</li>
-//             </ul>
-//             {errors.platform && <p className={stl.error}> {errors.platform} </p>}
-
-//             <label>Select Genres:</label>
-//             {allgenres.sort().map((p) => {
-//               return (
-//                 <div key={p.id} className={stl.checkboxContainer}>
-//                   <input
-//                     type="checkbox"
-//                     value={p.id}
-//                     onChange={handleGenresChange}
-//                   />
-//                   <label>{p.name}</label>
-//                 </div>
-//               );
-//             })}
-
-//             <ul>
-//               <li>{input.genre.map((p) => p + ' ,')}</li>
-//             </ul>
-
-//             <button className={stl.bot} type="submit">
-//               Add Game
-//             </button>
-//             <span>
-//               <Link to="/home">
-//                 <button className={stl.bot2}>Back To Home</button>
-//               </Link>{' '}
-//             </span>
-//           </div>
-//         </form>
-//       </div>
-//       <div />
-//     </>
-//   );
