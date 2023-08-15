@@ -4,8 +4,9 @@ import PokemonCard from '../pokemonCard/PokemonCard'
 import styles from './Home.module.css'
 import SearchBar from '../searchBar/SearchBar'
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllPokemons, getFilteredPokemons, cleanFilteredPokemons, getPokemonByName } from '../../redux/actions'
+import { getAllPokemons, getFilteredPokemons, cleanFilteredPokemons, getPokemonByName, getTypes } from '../../redux/actions'
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
   const pokemonByName = useSelector((state) => state.pokemonByName)
@@ -18,6 +19,8 @@ const Home = () => {
   const [value, setValue] = useState(null)
   const [filter, setFilter] = useState('')
   const [searchValue, setSearchValue] = useState('')
+  const navigate = useNavigate()
+  const types = useSelector((state) => state.types)
 
   const handleSearchClick = () => {
     dispatch(getPokemonByName(searchValue))
@@ -56,6 +59,8 @@ const Home = () => {
 
 
   useEffect(() => {
+
+    if (types.length < 1) dispatch(getTypes())
     
     if (typeof value === 'string') {
       console.log(currentPage, start, end, value)
@@ -85,28 +90,11 @@ const Home = () => {
                 <option value="api">API</option>
             </select>
             <select onChange={handleSelectChange} defaultValue="" name="type">
-                <option value="" disabled>Filter by type</option>
-                <option value="fire">fire</option>
-                <option value='grass'>grass</option>
-                <option value='dragon'>dragon</option>
-                <option value='normal'>normal</option>
-                <option value='fighting'>fighting</option>
-                <option value='poison'>poison</option>
-                <option value='flying'>flying</option>
-                <option value='rock'>rock</option>
-                <option value='ground'>ground</option>
-                <option value='bug'>bug</option>
-                <option value='ghost'>ghost</option>
-                <option value='steel'>steel</option>
-                <option value='water'>water</option>
-                <option value='electric'>electric</option>
-                <option value='psychic'>psychic</option>
-                <option value='dark'>dark</option>
-                <option value='fairy'>fairy</option>
-                <option value='unknown'>unknown</option>
-                <option value='shadow'>shadow</option>
+                {types.map((type) => <option key={type} value={type}>{type}</option>
+                )}
             </select>
             {value && <button onClick={resetFilters}>reset filters</button>}
+            <button onClick={ () => navigate('/create')}>create</button>
         </div>
 
 

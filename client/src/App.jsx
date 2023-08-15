@@ -3,6 +3,7 @@ import LandingPage from './components/landing/Landing'
 import Home from './components/home/Home'
 import styles from './App.module.css'
 import PokemonDetail from './components/pokemonDetail/PokemonDetail'
+import Form from './components/form/Form'
 
 
 const App = () => {
@@ -14,7 +15,7 @@ const App = () => {
           <Route path='/' element={<LandingPage />} />
           <Route path='/home' element={<Home />} />
           <Route path='/pokemon/:id' element= {<PokemonDetail />}/>
-          <Route path='/create' element= {""}/>
+          <Route path='/create' element= {<Form />}/>
         </Routes>
       </div>
       <div className={styles.sidebarRight}></div>

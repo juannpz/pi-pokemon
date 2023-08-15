@@ -9,7 +9,7 @@
     border-radius: 8px;
     box-shadow: 0px 4px 6px black;
     flex-wrap: wrap;
-    background: linear-gradient(45deg, #0026ff86, #ff00c880);
+    background-color: rgba(17, 17, 17, 0.521);
   }
 
   @media (max-width: 414px) {

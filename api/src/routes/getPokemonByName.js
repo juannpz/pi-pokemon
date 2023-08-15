@@ -14,7 +14,7 @@ module.exports = async function getPokemonByName(req, res, next) {
           [Op.iLike]: name,
         },
       },
-    });
+    })
 
     if (dbPokemon) {
       // Si se encontró en la base de datos, devolverlo directamente
@@ -33,10 +33,10 @@ module.exports = async function getPokemonByName(req, res, next) {
       }]);
     } else {
       // Si no se encontró en la base de datos, buscar en la API
-      const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`);
+      const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
       const pokemonDetails = response.data;
 
-      const types = pokemonDetails.types.map(type => type.type.name);
+      const types = pokemonDetails.types.map(type => type.type.name)
 
       const apiPokemonData = {
         api_id: pokemonDetails.id,
