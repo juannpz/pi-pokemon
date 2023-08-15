@@ -1,22 +1,22 @@
-const { Pokemon, Type } = require('../db.js');
+const { Pokemon, Type } = require('../db.js')
 
 const createPokemon = async (req, res, next) => {
     try {
-      const { name, img, hp, attack, defense, speed, height, weight, types } = req.body;
+      const { name, img, hp, attack, defense, speed, height, weight, types } = req.body
 
-      const existingPokemon = await Pokemon.findOne({ where: { name } });
+      const existingPokemon = await Pokemon.findOne({ where: { name } })
       if (existingPokemon) {
-        return res.status(409).json({ error: 'Ya existe un Pokémon con ese nombre.' });
+        return res.status(409).json({ error: 'Ya existe un Pokémon con ese nombre.' })
       }
 
-      const existingTypes = await Type.findAll({ where: { name: types } });
-      const existingTypeNames = existingTypes.map((type) => type.name);
-      const invalidTypes = types.filter((type) => !existingTypeNames.includes(type));
+      const existingTypes = await Type.findAll({ where: { name: types } })
+      const existingTypeNames = existingTypes.map((type) => type.name)
+      const invalidTypes = types.filter((type) => !existingTypeNames.includes(type))
       if (invalidTypes.length > 0) {
-        return res.status(400).json({ error: 'no se encuentra el tipo de pokemon en la base de datos' });
+        return res.status(400).json({ error: 'no se encuentra el tipo de pokemon en la base de datos' })
       }
 
-      const createdTypes = await Type.findAll({ where: { name: existingTypeNames } });
+      const createdTypes = await Type.findAll({ where: { name: existingTypeNames } })
 
       const associatedTypes = existingTypeNames;
       const createdPokemon = await Pokemon.create({
@@ -31,7 +31,7 @@ const createPokemon = async (req, res, next) => {
         origin: "local",
         type: associatedTypes,
       });
-      await createdPokemon.setTypes(createdTypes);
+      await createdPokemon.setTypes(createdTypes)
 
 
       const response = {
@@ -47,9 +47,9 @@ const createPokemon = async (req, res, next) => {
         types: associatedTypes,
       };
   
-      res.json(response);
+      res.json(response)
     } catch (error) {
-      next(error);
+      next(error)
     }
   };
 

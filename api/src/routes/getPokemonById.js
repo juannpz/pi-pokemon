@@ -1,27 +1,26 @@
-const { Pokemon, Type } = require('../db.js');
+const { Pokemon, Type } = require('../db.js')
 const axios = require('axios')
 
 
 module.exports = async function getPokemonById(req, res, next) {
     try {
-      const { idPokemon } = req.params;
+      const { idPokemon } = req.params
   
-      // Buscar el pokémon en la base de datos por su ID numérico (api_id)
+
       let pokemon = await Pokemon.findOne({
         where: {
           id: idPokemon,
         },
-      });
+      })
   
       if (!pokemon) {
-        // Si el pokémon no se encuentra en la base de datos, buscarlo en la API de Pokémon
-        const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${idPokemon}`);
-        const pokemonDetails = response.data;
+
+        const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${idPokemon}`)
+        const pokemonDetails = response.data
   
-        // Obtener los types del Pokémon desde la API
-        const types = pokemonDetails.types.map((type) => type.type.name);
-  
-        // Crear un objeto con los atributos que vamos a guardar en la base de datos
+
+        const types = pokemonDetails.types.map((type) => type.type.name)
+
         pokemon = {
           api_id: pokemonDetails.id,
           name: pokemonDetails.name,
@@ -33,17 +32,17 @@ module.exports = async function getPokemonById(req, res, next) {
           speed: pokemonDetails.stats.find((stat) => stat.stat.name === 'speed').base_stat,
           height: pokemonDetails.height,
           weight: pokemonDetails.weight,
-        };
+        }
   
-        // Crear el pokémon en la base de datos
+
       }
   
-      res.json(pokemon);
+      res.json(pokemon)
     } catch (error) {
       if (error.response && error.response.status === 404) {
-        res.status(404).json({ message: "No existe un pokemon con ese ID" });
+        res.status(404).json({ message: "No existe un pokemon con ese ID" })
       } else {
-        next(error);
+        next(error)
       }
     }
   }

@@ -1,11 +1,11 @@
-const { Pokemon, Type } = require('../db.js');
-const axios = require('axios');
-const { Op } = require('sequelize');
+const { Pokemon, Type } = require('../db.js')
+const axios = require('axios')
+const { Op } = require('sequelize')
 
 module.exports = async function getPokemonByName(req, res, next) {
   try {
-    let { name } = req.query;
-    name = name.toLowerCase();
+    let { name } = req.query
+    name = name.toLowerCase()
 
     // Buscar el pokémon en la base de datos
     const dbPokemon = await Pokemon.findOne({
@@ -30,11 +30,11 @@ module.exports = async function getPokemonByName(req, res, next) {
         speed: dbPokemon.speed,
         height: dbPokemon.height,
         weight: dbPokemon.weight,
-      }]);
+      }])
     } else {
       // Si no se encontró en la base de datos, buscar en la API
       const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
-      const pokemonDetails = response.data;
+      const pokemonDetails = response.data
 
       const types = pokemonDetails.types.map(type => type.type.name)
 
@@ -49,16 +49,16 @@ module.exports = async function getPokemonByName(req, res, next) {
         speed: pokemonDetails.stats.find(stat => stat.stat.name === 'speed').base_stat,
         height: pokemonDetails.height,
         weight: pokemonDetails.weight,
-      };
+      }
 
 
-      res.json([apiPokemonData]);
+      res.json([apiPokemonData])
     }
   } catch (error) {
     if (error.response && error.response.status === 404) {
-      res.status(404).json({ message: "No existe un pokemon con ese nombre" });
+      res.status(404).json({ message: "No existe un pokemon con ese nombre" })
     } else {
-      next(error);
+      next(error)
     }
   }
-};
+}

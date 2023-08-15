@@ -17,8 +17,7 @@ module.exports = async function getAllPokemons(req, res, next) {
       })
       
       const pokemonsFromAPI = response.data.results
-
-      // Guardar los detalles de los pokémons en la base de datos si aún no están presentes
+      
       for (const pokemon of pokemonsFromAPI) {
         const pokemonResponse = await axios.get(pokemon.url)
         const pokemonDetails = pokemonResponse.data
