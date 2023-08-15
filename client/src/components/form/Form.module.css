@@ -3,6 +3,12 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.formContent {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .typesContainer {
@@ -11,6 +17,14 @@
     justify-content: center;
     margin-left: 2rem;
     margin-right: 2rem;
+}
+
+.pairContainer input {
+    background-color: rgba(255, 255, 255, 0.295);
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.3rem;
+    color: whitesmoke;
 }
 
 .pairContainer {

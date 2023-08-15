@@ -4,16 +4,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #c2260b;
-    padding: 20px;
-    border-radius: 8px;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
     box-shadow: 0px 4px 6px black;
     flex-wrap: wrap;
-    background-color: rgba(17, 17, 17, 0.521);
+    background-color: #6f58bdb9;
   }
 
   @media (max-width: 414px) {
-    /* Estilos específicos para pantallas de iPhone 11 o dispositivos con ancho máximo de 414px */
     .searchBarContainer {
       flex-direction: column;
       align-items: flex-start;
@@ -27,11 +25,14 @@
   }
   
   .searchInput {
-    padding: 0.5rem;
+    padding: 1rem;
     font-size: 16px;
     border-radius: 0.3rem;
-    margin: 0.25rem;
-    background-color: whitesmoke;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+    background-color: rgba(245, 245, 245, 0.658);
+    border: none;
+    font-size: 1rem;
   }
 
   input:focus {
@@ -40,20 +41,22 @@
   
   .searchButton,
   .showAllButton {
-    background-color: whitesmoke;
+    background-color: rgba(245, 245, 245, 0.658);
     color: black;
     border: none;
     border-radius: 4px;
-    padding: 0.5rem 1rem;
-    margin: 0.25rem;
-    font-size: 16px;
+    padding: 1rem;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+    font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
   }
   
+  
   .searchButton:hover,
   .showAllButton:hover {
-    background-color: #FFCC00;
-    
+    background-color: #1d1241bd;
+    color: whitesmoke;
   }
   

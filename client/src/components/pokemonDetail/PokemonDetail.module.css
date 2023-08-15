@@ -55,6 +55,8 @@
 .value {
     margin-top: 0.2rem;
     margin-bottom: 1rem;
+    font-weight: bold;
+    color: rgb(26, 26, 26);
 }
 
 .label {

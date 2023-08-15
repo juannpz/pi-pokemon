@@ -136,37 +136,40 @@ const Home = () => {
           searchValue={searchValue}
           setSearchValue={setSearchValue}
           handleSearchClick={handleSearchClick}/>
-          <button onClick={ () => navigate('/create')}>create</button>
       </div>
 
-      {typeof pokemonByName !== 'object' || typeof pokemonByName === 'object' && pokemonByName.length < 1 && <div className={styles.filters_sorters}>
+      {typeof pokemonByName !== 'object' || typeof pokemonByName === 'object' && pokemonByName.length < 1 &&
+
+      <div className={styles.filters_sorters}>
         <div className={styles.filters}>
-            <select onChange={handleSelectChangeFilter} defaultValue="" name="origin">
+            <select className={styles.select} onChange={handleSelectChangeFilter} defaultValue="" name="origin">
                 <option value="" disabled>Filter by origin</option>
                 <option value="local">DB</option>
                 <option value="api">API</option>
             </select>
-            <select onChange={handleSelectChangeFilter} defaultValue="" name="type">
+            <select className={styles.select} onChange={handleSelectChangeFilter} defaultValue="" name="type">
               <option value="" disabled>Filter by types</option>
                 {types.map((type) => <option key={type} value={type}>{type}</option>
                 )}
             </select>
             {filterValue && <button onClick={resetFilters}>reset filters</button>}
         </div>
+        <div className={styles.createButtonContainer}>
+            <button className={styles.createButton} onClick={ () => navigate('/create')}>New pokémon</button>
+          </div>
         <div className={styles.sorters}>
-            <select onChange={handleSelectChangeSorter} defaultValue="" name="a-z">
+            <select className={styles.select} onChange={handleSelectChangeSorter} defaultValue="" name="a-z">
                 <option value="" disabled>a-z</option>
                 <option value="asc">asc</option>
                 <option value="desc">desc</option>
             </select>
-            <select onChange={handleSelectChangeSorter} defaultValue="" name="atk">
+            <select className={styles.select} onChange={handleSelectChangeSorter} defaultValue="" name="atk">
                 <option value="" disabled>atk</option>
                 <option value="asc">asc</option>
                 <option value="desc">desc</option>
             </select>
         </div>
       </div>}
-
 
       {!pokemonByName || typeof pokemonByName === 'string' ? <h1>Pokémon not found</h1> : pokemonByName.length < 1 ? 
       <div className={styles.cardContainer}>

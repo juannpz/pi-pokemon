@@ -44,12 +44,12 @@ const CreatePokemonForm = () => {
       setNewPokemon({
         name: '',
         img: '',
-        hp: 0,
-        attack: 0,
-        defense: 0,
-        speed: 0,
-        height: 0,
-        weight: 0,
+        hp: "",
+        attack: "",
+        defense: "",
+        speed: "",
+        height: "",
+        weight: "",
         types: [],
       })
       setErrors({
@@ -97,140 +97,144 @@ const CreatePokemonForm = () => {
 
   return (
         <form onSubmit={handleSubmit} className={styles.form}>
-            <div className={styles.inputContainer}>
+
+          <div className={styles.formContent}>
+          <div className={styles.inputContainer}>
     
-      <div className={styles.pairContainer}>
-      <label className={styles.label}>
-        Name:
-        </label>
-        <input
-            className={styles.input}
-            type="text"
-            name="name"
-            value={newPokemon.name}
-            onChange={handleInputChange}
+    <div className={styles.pairContainer}>
+    <label className={styles.label}>
+      Name:
+      </label>
+      <input
+          className={styles.input}
+          type="text"
+          name="name"
+          value={newPokemon.name}
+          onChange={handleInputChange}
+      />
+    </div>
+    
+    <div className={styles.pairContainer}>
+    <label className={styles.label}>
+      Url image:
+      </label>
+      <input
+          className={styles.input}
+          type="text"
+          name="img"
+          value={newPokemon.img}
+          onChange={handleInputChange}
+      />
+    </div>
+    
+    <div className={styles.pairContainer}>
+    <label className={styles.label}>
+      Hp:
+      </label>
+      <input
+          className={styles.input}
+          type="text"
+          name="hp"
+          value={newPokemon.hp}
+          onChange={handleInputChange}
+        />
+    </div>
+
+    <div className={styles.pairContainer}>
+    <label className={styles.label}>
+      Attack:
+      </label>
+      <input
+          className={styles.input}
+          type="text"
+          name="attack"
+          value={newPokemon.attack}
+          onChange={handleInputChange}
+        />
+    </div>
+
+    <div className={styles.pairContainer}>
+    <label className={styles.label}>
+      Defense:
+      </label>
+      <input
+          className={styles.input}
+          type="text"
+          name="defense"
+          value={newPokemon.defense}
+          onChange={handleInputChange}
+      />
+    </div>
+
+    <div className={styles.pairContainer}>   
+    <label className={styles.label}>
+      Speed:
+      </label>
+      <input
+          className={styles.input}
+          type="text"
+          name="speed"
+          value={newPokemon.speed}
+          onChange={handleInputChange}
+        />
+    </div>
+    
+    <div className={styles.pairContainer}>
+    <label className={styles.label}>
+      Height:
+      </label>
+      <input
+          className={styles.input}
+          type="text"
+          name="height"
+          value={newPokemon.height}
+          onChange={handleInputChange}
+        />
+    </div>
+    
+    <div className={styles.pairContainer}>
+    <label className={styles.label}>
+      Weight:
+      </label>
+      <input
+          className={styles.input}
+          type="text"
+          name="weight"
+          value={newPokemon.weight}
+          onChange={handleInputChange}
         />
       </div>
       
-      <div className={styles.pairContainer}>
-      <label className={styles.label}>
-        Url image:
-        </label>
-        <input
-            className={styles.input}
-            type="text"
-            name="img"
-            value={newPokemon.img}
-            onChange={handleInputChange}
-        />
-      </div>
+    
       
-      <div className={styles.pairContainer}>
-      <label className={styles.label}>
-        Hp:
-        </label>
-        <input
-            className={styles.input}
-            type="text"
-            name="hp"
-            value={newPokemon.hp}
-            onChange={handleInputChange}
-          />
-      </div>
-
-      <div className={styles.pairContainer}>
-      <label className={styles.label}>
-        Attack:
-        </label>
-        <input
-            className={styles.input}
-            type="text"
-            name="attack"
-            value={newPokemon.attack}
-            onChange={handleInputChange}
-          />
-      </div>
-
-      <div className={styles.pairContainer}>
-      <label className={styles.label}>
-        Defense:
-        </label>
-        <input
-            className={styles.input}
-            type="text"
-            name="defense"
-            value={newPokemon.defense}
-            onChange={handleInputChange}
-        />
-      </div>
-
-      <div className={styles.pairContainer}>   
-      <label className={styles.label}>
-        Speed:
-        </label>
-        <input
-            className={styles.input}
-            type="text"
-            name="speed"
-            value={newPokemon.speed}
-            onChange={handleInputChange}
-          />
-      </div>
-      
-      <div className={styles.pairContainer}>
-      <label className={styles.label}>
-        Height:
-        </label>
-        <input
-            className={styles.input}
-            type="text"
-            name="height"
-            value={newPokemon.height}
-            onChange={handleInputChange}
-          />
-      </div>
-      
-      <div className={styles.pairContainer}>
-      <label className={styles.label}>
-        Weight:
-        </label>
-        <input
-            className={styles.input}
-            type="text"
-            name="weight"
-            value={newPokemon.weight}
-            onChange={handleInputChange}
-          />
+      {errors.types && <span className="error">{errors.types}</span>}
+    
         </div>
-        
-      
-        
-        {errors.types && <span className="error">{errors.types}</span>}
-      
-          </div>
-          <div className={styles.typesContainer}>
-        <label className={styles.label}>
-        Tipos:
-        </label>    
-          {types.map((type) =>
-          <div className={styles.typelabelInput} key={type}>
-            
-            <input
-            className={styles.typesInput}
-            type="checkbox"
-            name="types"
-            value={type}
-            checked={newPokemon.types.includes(type)}
-            onChange={handleTypeChange}/>
-            
-            <label className={styles.label}>
-            {type}
-            </label>
-          </div>
-          )}
+        <div className={styles.typesContainer}>
+      <label className={styles.label}>
+      Tipos:
+      </label>    
+        {types.map((type) =>
+        <div className={styles.typelabelInput} key={type}>
           
+          <input
+          className={styles.typesInput}
+          type="checkbox"
+          name="types"
+          value={type}
+          checked={newPokemon.types.includes(type)}
+          onChange={handleTypeChange}/>
+          
+          <label className={styles.label}>
+          {type}
+          </label>
         </div>
-      <button type="submit">Crear Pokémon</button>
+        )}
+        
+      </div>
+          </div>
+          <button type="submit">Crear Pokémon</button>
+            
     </form>
     
   )
