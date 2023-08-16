@@ -6,6 +6,7 @@ const initialState = {
     pokemonById: {},
     pokemonByName: [],
     filteredPokemons: [],
+    lastRendered: []
   }
   
   const reducer = (state = initialState, action) => {
@@ -51,6 +52,12 @@ const initialState = {
         return {
           ...state,
           filteredPokemons: [],
+        }
+
+      case "FILL_LAST_RENDERED":
+        return {
+          ...state,
+          lastRendered: action.payload
         }
       
 

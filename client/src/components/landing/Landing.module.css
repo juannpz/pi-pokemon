@@ -14,7 +14,7 @@
   
   .launchButton {
     /* Estilo de botón */
-    border: 0.2rem solid rgb(70, 70, 70); /* Borde rojo alrededor del botón */
+    border: none;
     border-radius: 10px; /* Bordes redondeados */
     background-color: rgba(245, 245, 245, 0.658); /* Fondo amarillo */
     color: rgb(55, 55, 55); /* Texto en color blanco */

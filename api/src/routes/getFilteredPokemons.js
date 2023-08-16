@@ -16,7 +16,7 @@ module.exports = async function getFilteredPokemon(req, res, next) {
                     limit: end - start + 1,
                     where: {
                         origin: value
-                }
+                    }
                 })
                 break
 

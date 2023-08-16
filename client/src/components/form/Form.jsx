@@ -10,12 +10,12 @@ const CreatePokemonForm = () => {
   const [newPokemon, setNewPokemon] = useState({
     name: '',
     img: '',
-    hp: 0,
-    attack: 0,
-    defense: 0,
-    speed: 0,
-    height: 0,
-    weight: 0,
+    hp: '',
+    attack: '',
+    defense: '',
+    speed: '',
+    height: '',
+    weight: '',
     types: [],
   })
 
@@ -25,7 +25,7 @@ const CreatePokemonForm = () => {
   })
 
   useEffect(() => {
-    console.log(newPokemon)
+    // console.log(newPokemon)
     if (types.length < 1) dispatch(getTypes())
   }, [dispatch, types, newPokemon])
 
@@ -38,18 +38,16 @@ const CreatePokemonForm = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:3001/pokemons", newPokemon)
-      const data = response.data
-      console.log(data)
+      await axios.post("http://localhost:3001/pokemons", newPokemon)
       setNewPokemon({
         name: '',
         img: '',
-        hp: "",
-        attack: "",
-        defense: "",
-        speed: "",
-        height: "",
-        weight: "",
+        hp: '',
+        attack: '',
+        defense: '',
+        speed: '',
+        height: '',
+        weight: '',
         types: [],
       })
       setErrors({
@@ -204,10 +202,6 @@ const CreatePokemonForm = () => {
           onChange={handleInputChange}
         />
       </div>
-      
-    
-      
-      {errors.types && <span className="error">{errors.types}</span>}
     
         </div>
         <div className={styles.typesContainer}>
@@ -233,7 +227,8 @@ const CreatePokemonForm = () => {
         
       </div>
           </div>
-          <button type="submit">Crear Pokémon</button>
+          <button className={styles.createButton} type="submit">Create pokémon</button>
+          {errors.types && <span className={styles.error}>{errors.types}</span>}
             
     </form>
     

@@ -5,13 +5,13 @@ const { Op } = require('sequelize')
 module.exports = async function getPokemonByName(req, res, next) {
   try {
     let { name } = req.query
-    name = name.toLowerCase()
+    name = name.toUpperCase()
 
     // Buscar el pokémon en la base de datos
     const dbPokemon = await Pokemon.findOne({
       where: {
         name: {
-          [Op.iLike]: name,
+          [Op.iLike]: name
         },
       },
     })

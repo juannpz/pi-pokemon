@@ -96,6 +96,13 @@ const cleanFilteredPokemons = () => {
   }
 }
 
+const fillLastRendered = (rendering) => {
+  return {
+    type: "FILL_LAST_RENDERED",
+    payload: rendering
+  }
+}
+
 export {
     getAllPokemons,
     getPokemonById,
@@ -105,4 +112,5 @@ export {
     getFilteredPokemons,
     cleanFilteredPokemons,
     ACTIONS_TYPES,
+    fillLastRendered
 }
