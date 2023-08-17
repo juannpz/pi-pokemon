@@ -23,7 +23,7 @@ const Home = () => {
   const types = useSelector((state) => state.types)
   const [sorterValue, setSorterValue] = useState(null)
   const [sorterName, setSorterName] = useState("")
-  let lastRendered = useSelector((state) => state.lastRendered)
+  // let lastRendered = useSelector((state) => state.lastRendered)
   // const [lastRendered, setLastRendered] = useState([])
 
 
@@ -83,10 +83,11 @@ const Home = () => {
         setCurrentPage(1)
     }
 
-    const resetSorters = () => {
-        setSorterName("")
+    const resetSorter= () => {
         setSorterValue(null)
+
     }
+
 
     const handleClickNext = () => {
       setCurrentPage(currentPage + 1)
@@ -124,16 +125,17 @@ const Home = () => {
   
   pokemonsToRender = pokemons
 
-  if (typeof pokemonByName === 'object' && pokemonByName.length > 0 && filterValue == null) {
+  if (typeof pokemonByName === 'object' && pokemonByName.length > 0 && filterValue === null) {
     pokemonsToRender = pokemonByName
   } else if (filterValue !== null) {
-    if (sorterName.length > 1) {
+    if (sorterValue !== null) {
       pokemonsToRender = sort(filteredPokemons)
     }
   } else if (sorterValue !== null) {
     // console.log(sort(pokemons))
     pokemonsToRender = sort(pokemons)
   }
+  // console.log(pokemonsToRender);
 
   // const pokemonsToRender = typeof pokemonByName === 'object' && pokemonByName.length > 0 && filterValue == null ? pokemonByName : filterValue !== null ? filteredPokemons : pokemons
 
@@ -151,7 +153,7 @@ const Home = () => {
       <div className={styles.filters_sorters}>
         <div className={styles.filters}>
             <select className={styles.select} onChange={handleSelectChangeFilter} defaultValue="" name="origin">
-                <option value="" disabled>Filter by origin</option>
+                <option value="" disabled>Filter by origin</option>Filter
                 <option value="local">DB</option>
                 <option value="api">API</option>
             </select>
@@ -167,16 +169,16 @@ const Home = () => {
           </div>
         <div className={styles.sorters}>
             <select className={styles.select} onChange={handleSelectChangeSorter} defaultValue="" name="a-z">
-                <option value="" disabled>Order A-Z</option>
+                <option value="default" disabled>Order A-Z</option>
                 <option value="asc">asc</option>
                 <option value="desc">desc</option>
             </select>
             <select className={styles.select} onChange={handleSelectChangeSorter} defaultValue="" name="atk">
-                <option value="" disabled>Order by ATK</option>
+                <option value="default" disabled>Order by ATK</option>
                 <option value="asc">asc</option>
                 <option value="desc">desc</option>
             </select>
-            {sorterValue && sorterName && <button onClick={resetSorters}>reset</button>}
+            {sorterValue && <button onClick={resetSorter}>reset</button>}
         </div>
       </div>}
       

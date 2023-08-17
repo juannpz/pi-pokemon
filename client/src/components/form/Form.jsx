@@ -39,6 +39,11 @@ const CreatePokemonForm = () => {
       return
     }
 
+    if (errors.name === "") setErrors({
+      ...errors,
+      name: "name is required"
+    })
+
     try {
       await axios.post("http://localhost:3001/pokemons", newPokemon)
       setNewPokemon({
@@ -234,6 +239,7 @@ const CreatePokemonForm = () => {
             <button onClick={() => navigate('/home')} className={styles.homeButton}>Home</button>    
           </div>
           {errors.types && <span className={styles.error}>{errors.types}</span>}
+          {errors.name && <span className={styles.error}>{errors.name}</span>}
             
     </form>
     
