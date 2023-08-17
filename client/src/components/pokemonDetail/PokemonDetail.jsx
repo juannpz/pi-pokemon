@@ -1,8 +1,10 @@
+import { useNavigate } from 'react-router-dom'
 import PokemonById from '../../hooks/pokemonById'
 import styles from './PokemonDetail.module.css'
 
 const PokemonDetail = () => {
 
+    const navigate = useNavigate()
     const { type, name, attack, defense, hp, speed, img, weight, height } = PokemonById()
 
     return (
@@ -41,7 +43,11 @@ const PokemonDetail = () => {
                     </div>
                 </div>
                 
-            </div>            
+            </div> 
+            <div className={styles.homeButtonContainer}>
+                <button onClick={() => navigate('/home')} className={styles.homeButton}>Home</button>    
+            </div>   
+                
         </div>
     )
 }

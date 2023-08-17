@@ -3,11 +3,13 @@ import axios from 'axios';
 import { getTypes } from '../../redux/actions';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './Form.module.css'
+import { useNavigate } from 'react-router-dom';
 
 const CreatePokemonForm = () => {
     const types = useSelector((state) => state.types)
     const dispatch = useDispatch()
-  const [newPokemon, setNewPokemon] = useState({
+    const navigate = useNavigate()
+    const [newPokemon, setNewPokemon] = useState({
     name: '',
     img: '',
     hp: '',
@@ -227,7 +229,10 @@ const CreatePokemonForm = () => {
         
       </div>
           </div>
-          <button className={styles.createButton} type="submit">Create pokémon</button>
+          <div className={styles.buttonsContainer}>
+            <button className={styles.createButton} type="submit">Create pokémon</button>
+            <button onClick={() => navigate('/home')} className={styles.homeButton}>Home</button>    
+          </div>
           {errors.types && <span className={styles.error}>{errors.types}</span>}
             
     </form>
