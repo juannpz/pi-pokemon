@@ -1,7 +1,5 @@
 import axios from "axios"
 
-const BASE_URL = 'http://localhost:3001/'
-
 const ACTIONS_TYPES = {
    GET_ALL_POKEMONS : "GET_ALL_POKEMONS",
    GET_POKEMON_BY_ID : "GET_POKEMON_BY_ID",
@@ -10,12 +8,13 @@ const ACTIONS_TYPES = {
    CLEAN_POKEMON_BY_NAME : "CLEAN_POKEMON_BY_NAME",
    GET_FILTERED_POKEMONS : "GET_FILTERED_POKEMONS",
    CLEAN_FILTERED_POKEMONS : "CLEAN_FILTERED_POKEMONS",
+   FILL_LAST_RENDERED: "FILL_LAST_RENDERED",
 }
 
 const getAllPokemons = (start, end) => {
   return async (dispatch) => {
       try {
-          const response = await axios.get("http://localhost:3001/pokemons", {
+          const response = await axios.get('/pokemons', {
               params: {
                   start: start,
                   end: end
@@ -32,7 +31,7 @@ const getAllPokemons = (start, end) => {
 const getPokemonById = (id) => {
   return async (dispatch) => {
     try {
-      const response = await axios.get(`${BASE_URL}pokemons/${id}`)
+      const response = await axios.get(`/pokemons/${id}`)
       const pokemon = response.data
       dispatch({ type: ACTIONS_TYPES.GET_POKEMON_BY_ID, payload: pokemon })
     } catch (error) {
@@ -44,7 +43,7 @@ const getPokemonById = (id) => {
 const getPokemonByName = (name) => {
   return async (dispatch) => {
     try {
-      const response = await axios.get(`http://localhost:3001/pokemons/name?name=${name}`)
+      const response = await axios.get(`/pokemons/name?name=${name}`)
       const pokemon = response.data
       dispatch({ type: ACTIONS_TYPES.GET_POKEMON_BY_NAME, payload: pokemon })
     } catch (error) {
@@ -56,7 +55,7 @@ const getPokemonByName = (name) => {
 const getTypes = () => {
   return async (dispatch) => {
     try {
-      const response = await axios.get('http://localhost:3001/types')
+      const response = await axios.get('/types')
       const types = response.data
       dispatch({ type: ACTIONS_TYPES.GET_TYPES, payload: types })
     } catch (error) {
@@ -74,7 +73,7 @@ const cleanPokemonByName = () => {
 const getFilteredPokemons = (start, end, filteredBy, value) => {
   return async (dispatch) => {
     try {
-      const response = await axios.get("http://localhost:3001/pokemons/filteredBy", {
+      const response = await axios.get('/pokemons/filteredBy', {
         params: {
             start: start,
             end: end,
@@ -98,7 +97,7 @@ const cleanFilteredPokemons = () => {
 
 const fillLastRendered = (rendering) => {
   return {
-    type: "FILL_LAST_RENDERED",
+    type: ACTIONS_TYPES.FILL_LAST_RENDERED,
     payload: rendering
   }
 }

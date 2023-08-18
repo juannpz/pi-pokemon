@@ -4,7 +4,8 @@ import Home from './components/home/Home'
 import styles from './App.module.css'
 import PokemonDetail from './components/pokemonDetail/PokemonDetail'
 import Form from './components/form/Form'
-
+import axios from 'axios'
+axios.defaults.baseURL = 'http://localhost:3001'
 
 const App = () => {
   return (
