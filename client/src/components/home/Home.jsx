@@ -182,7 +182,7 @@ const Home = () => {
         </div>
       </div>}
       
-      {!pokemonByName || typeof pokemonByName === 'string' ? 
+      {typeof pokemonByName === 'string' ? 
       <div className={styles.notFoundContainer}>
         <img className={styles.notFoundImg} src='./src/assets/pikachu.png' alt="sas" />
         <label className={styles.notFound}>Pokémon not found</label>

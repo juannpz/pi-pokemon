@@ -24,3 +24,4 @@ pokemon.session.sql
 *.njsproj
 *.sln
 *.sw?
+.vercel
