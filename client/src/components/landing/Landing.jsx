@@ -11,11 +11,36 @@ const Landing = () => {
     const types = useSelector((state) => state.types)
     const dispatch = useDispatch()
     
-    useEffect(() => { 
-      if (typeof types === 'object' && pokemons.length < 1) dispatch(getTypes())
-      if (typeof pokemons === 'object' && pokemons.length < 1) dispatch(getAllPokemons(1, 12))
-      typeof pokemons === 'object' && pokemons.length > 1 && setLoading(false)
-  }, [pokemons, dispatch, types])
+    useEffect(() => {
+      if (typeof types === 'object' && types.length < 1) {
+        // Obtener los tipos antes de los pokemons
+        dispatch(getTypes())
+          .then(() => {
+            if (typeof pokemons === 'object' && pokemons.length < 1) {
+              return dispatch(getAllPokemons(1, 12));
+            }
+          })
+          .then(() => {
+            setLoading(false);
+          })
+          .catch((error) => {
+            console.error('Error fetching data:', error);
+            setLoading(false); // Manejar el estado incluso en caso de error
+          });
+      } else if (typeof pokemons === 'object' && pokemons.length < 1) {
+        // Si los tipos ya se han cargado, cargar los pokemons
+        dispatch(getAllPokemons(1, 12))
+          .then(() => {
+            setLoading(false);
+          })
+          .catch((error) => {
+            console.error('Error fetching data:', error);
+            setLoading(false); // Manejar el estado incluso en caso de error
+          });
+      } else {
+        setLoading(false);
+      }
+    }, [pokemons, dispatch, types]);
 
 
   return (

@@ -169,12 +169,12 @@ const Home = () => {
           </div>
         <div className={styles.sorters}>
             <select className={styles.select} onChange={handleSelectChangeSorter} defaultValue="" name="a-z">
-                <option value="default" disabled>Order A-Z</option>
+                <option value="" disabled>Order A-Z</option>
                 <option value="asc">asc</option>
                 <option value="desc">desc</option>
             </select>
             <select className={styles.select} onChange={handleSelectChangeSorter} defaultValue="" name="atk">
-                <option value="default" disabled>Order by ATK</option>
+                <option value="" disabled>Order by ATK</option>
                 <option value="asc">asc</option>
                 <option value="desc">desc</option>
             </select>
