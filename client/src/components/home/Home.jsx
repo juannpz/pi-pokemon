@@ -23,7 +23,8 @@ const Home = () => {
   const types = useSelector((state) => state.types)
   const [sorterValue, setSorterValue] = useState(null)
   const [sorterName, setSorterName] = useState("")
-  // let lastRendered = useSelector((state) => state.lastRendered)
+  const [pokemonsToRender, setPokemonsToRender] = useState([])
+  // const lastRendered = useSelector((state) => state.lastRendered)
   // const [lastRendered, setLastRendered] = useState([])
 
 
@@ -41,10 +42,10 @@ const Home = () => {
   
     if (sorterName === 'a-z') {
       if (sorterValue === 'asc') {
-        sortedPokemons = [...pokemonsToSort].sort((a, b) => a.name > b.name)
+        sortedPokemons = [...pokemonsToSort].sort((a, b) => a.name.localeCompare(b.name))
       }
       if (sorterValue === 'desc') {
-        sortedPokemons = [...pokemonsToSort].sort((a, b) => a.name < b.name)
+        sortedPokemons = [...pokemonsToSort].sort((a, b) => b.name.localeCompare(a.name))
       }
     }
 
@@ -105,9 +106,6 @@ const Home = () => {
 
 
   useEffect(() => {
-    // console.log(pokemonsToRender);
-    // console.log(sorterValue)
-    // console.log(sorterName);
 
     if (types.length < 1) dispatch(getTypes())
     
@@ -116,25 +114,46 @@ const Home = () => {
     } else {
       dispatch(getAllPokemons(start-1, end-1))
     }
-    // console.log(sort(pokemons));
     
   }, [dispatch, filterValue, currentPage, sorterValue])
 
-  
-  let pokemonsToRender = []  
-  
-  pokemonsToRender = pokemons
+  useEffect(() => {
 
-  if (typeof pokemonByName === 'object' && pokemonByName.length > 0 && filterValue === null) {
-    pokemonsToRender = pokemonByName
-  } else if (filterValue !== null) {
-    if (sorterValue !== null) {
-      pokemonsToRender = sort(filteredPokemons)
+    
+    
+    setPokemonsToRender(pokemons)
+
+    
+    
+    if (typeof pokemonByName === 'object' && pokemonByName.length > 0 && filterValue === null) {
+      setPokemonsToRender(pokemonByName)
+    } else if (filterValue !== null) {
+      if (sorterValue !== null) {
+        setPokemonsToRender(sort(filteredPokemons))
+      }
+    } else if (sorterValue !== null) {
+      setPokemonsToRender(sort(pokemons))
     }
-  } else if (sorterValue !== null) {
-    // console.log(sort(pokemons))
-    pokemonsToRender = sort(pokemons)
-  }
+    
+
+  }, [pokemons, pokemonByName, filteredPokemons, filterValue, sorterValue])
+
+
+  
+  // let pokemonsToRender = []  
+  
+  // pokemonsToRender = pokemons
+
+  // if (typeof pokemonByName === 'object' && pokemonByName.length > 0 && filterValue === null) {
+  //   pokemonsToRender = pokemonByName
+  // } else if (filterValue !== null) {
+  //   if (sorterValue !== null) {
+  //     pokemonsToRender = sort(filteredPokemons)
+  //   }
+  // } else if (sorterValue !== null) {
+  //   console.log(sort(pokemons))
+  //   pokemonsToRender = sort(pokemons)
+  // }
   // console.log(pokemonsToRender);
 
   // const pokemonsToRender = typeof pokemonByName === 'object' && pokemonByName.length > 0 && filterValue == null ? pokemonByName : filterValue !== null ? filteredPokemons : pokemons

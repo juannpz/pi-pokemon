@@ -54,7 +54,7 @@ const initialState = {
           filteredPokemons: [],
         }
 
-      case "FILL_LAST_RENDERED":
+      case ACTIONS_TYPES.FILL_LAST_RENDERED:
         return {
           ...state,
           lastRendered: action.payload

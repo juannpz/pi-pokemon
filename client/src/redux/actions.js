@@ -110,6 +110,6 @@ export {
     cleanPokemonByName,
     getFilteredPokemons,
     cleanFilteredPokemons,
+    fillLastRendered,
     ACTIONS_TYPES,
-    fillLastRendered
 }
