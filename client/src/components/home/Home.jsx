@@ -24,10 +24,8 @@ const Home = () => {
   const [sorterValue, setSorterValue] = useState(null)
   const [sorterName, setSorterName] = useState("")
   const [pokemonsToRender, setPokemonsToRender] = useState([])
-  // const lastRendered = useSelector((state) => state.lastRendered)
-  // const [lastRendered, setLastRendered] = useState([])
 
-
+  
   const handleSelectChangeSorter = (event) => {
     const selectedValue = event.target.value
     const selectedName = event.target.name
@@ -35,11 +33,11 @@ const Home = () => {
     setSorterName(selectedName)
   }
 
+
   const sort = (pokemonsToSort) => {
 
     let sortedPokemons
     
-  
     if (sorterName === 'a-z') {
       if (sorterValue === 'asc') {
         sortedPokemons = [...pokemonsToSort].sort((a, b) => a.name.localeCompare(b.name))
@@ -48,7 +46,6 @@ const Home = () => {
         sortedPokemons = [...pokemonsToSort].sort((a, b) => b.name.localeCompare(a.name))
       }
     }
-
 
     if (sorterName === 'atk') {
       if (sorterValue === 'asc') {
@@ -62,9 +59,11 @@ const Home = () => {
     return sortedPokemons
   }
 
+
   const handleSearchClick = () => {
     dispatch(getPokemonByName(searchValue))
   }
+
 
     const handleSelectChangeFilter = (event) => {
         const selectedValue = event.target.value
@@ -76,6 +75,7 @@ const Home = () => {
         setCurrentPage(1)
     }
 
+
     const resetFilters = () => {
         setFilterValue(null)
         dispatch(cleanFilteredPokemons())
@@ -83,6 +83,7 @@ const Home = () => {
         setEnd(12)
         setCurrentPage(1)
     }
+
 
     const resetSorter= () => {
         setSorterValue(null)
@@ -95,6 +96,7 @@ const Home = () => {
       setStart(start + 12)
       setEnd(end + 12)
   }
+
 
   const handleClickPrev = () => {
       if (currentPage > 1) {
@@ -114,16 +116,13 @@ const Home = () => {
     } else {
       dispatch(getAllPokemons(start-1, end-1))
     }
-    
+  
   }, [dispatch, filterValue, currentPage, sorterValue])
+
 
   useEffect(() => {
 
-    
-    
     setPokemonsToRender(pokemons)
-
-    
     
     if (typeof pokemonByName === 'object' && pokemonByName.length > 0 && filterValue === null) {
       setPokemonsToRender(pokemonByName)
@@ -134,29 +133,9 @@ const Home = () => {
     } else if (sorterValue !== null) {
       setPokemonsToRender(sort(pokemons))
     }
-    
 
   }, [pokemons, pokemonByName, filteredPokemons, filterValue, sorterValue])
 
-
-  
-  // let pokemonsToRender = []  
-  
-  // pokemonsToRender = pokemons
-
-  // if (typeof pokemonByName === 'object' && pokemonByName.length > 0 && filterValue === null) {
-  //   pokemonsToRender = pokemonByName
-  // } else if (filterValue !== null) {
-  //   if (sorterValue !== null) {
-  //     pokemonsToRender = sort(filteredPokemons)
-  //   }
-  // } else if (sorterValue !== null) {
-  //   console.log(sort(pokemons))
-  //   pokemonsToRender = sort(pokemons)
-  // }
-  // console.log(pokemonsToRender);
-
-  // const pokemonsToRender = typeof pokemonByName === 'object' && pokemonByName.length > 0 && filterValue == null ? pokemonByName : filterValue !== null ? filteredPokemons : pokemons
 
   return (
     <div className={styles.homeContainer}>
